@@ -12,7 +12,6 @@ void setup() {
 }
 
 void draw() {
-  //lights();
   noCursor();  
   background(255);
   camera(mouseX, height/2, (height/2) / tan(PI/6), width/2, height/2, 0, 0, 1, 1); // Adjust camera
@@ -24,12 +23,11 @@ void draw() {
     for (int x = 0; x< w; x++)
     {
       // Color extraction using bit-shifting
-      color c= video.pixels[y*video.width+x]; 
+      color c= video.pixels[y*video.width+x];
       int r = c >> 16 & 0xFF; // Red
       int g = c >> 8 & 0xFF; // Green
       int b = c & 0xFF; // Blue
-
-      stroke(r, g, b);
+      stroke(c);
       point(30+x, y+30, ((int)(r+g+b)/3)+mouseY);
     }
   }
